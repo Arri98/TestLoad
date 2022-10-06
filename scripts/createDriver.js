@@ -4,7 +4,8 @@ let config = require('../config/config');
 
 async function createDriver(params){
     config = config ? config : {};
-    console.log(params)
+    params = params ? params : {};
+    config = {...config, ...params};
     const service = new chrome.ServiceBuilder(`./drivers/${config.cromeDriver}`);
     let options = new chrome.Options();
     options.addArguments('--no-sandbox');
@@ -17,7 +18,10 @@ async function createDriver(params){
     options.addArguments('--allow-file-access-from-files');
     options.addArguments('--use-fake-device-for-media-stream');
     options.addArguments('--use-fake-ui-for-media-stream');
-    options.addArguments('--use-file-for-fake-video-capture=./files/fakeCamera.mjpeg');
+    if(config.videoFile){
+        options.addArguments(`--use-file-for-fake-video-capture=./files/${config.videoFile}`);
+    }
+
 
     const driver = await new Builder()
         .forBrowser('chrome')
