@@ -1,4 +1,4 @@
-const {createDriver} = require("./createDriver");
+const {createDriver} = require("./common/createDriver");
 
 const { By, Builder, until } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');

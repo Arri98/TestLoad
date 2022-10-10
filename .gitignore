@@ -3,3 +3,4 @@ files/
 node_modules/*
 drivers/*
 minikube-linux-amd64
+config.js
