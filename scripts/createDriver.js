@@ -16,6 +16,8 @@ async function createDriver(params){
     options.addArguments('--disable-infobars');
     options.addArguments('--disable-features=PreloadMediaEngagementData,AutoplayIgnoreWebAudio,MediaEngagementBypassAutoplayPolicies');
     options.addArguments('--allow-file-access-from-files');
+    options.addArguments('--disable-dev-shm-usage');
+    options.addArguments('--disable-gpu');
     options.addArguments('--use-fake-device-for-media-stream');
     options.addArguments('--use-fake-ui-for-media-stream');
     if(config.videoFile){

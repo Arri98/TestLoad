@@ -35,7 +35,7 @@ spec:
     protocol: UDP
     port: 30005
     targetPort: pc-port5
-    
+
 ---
 kind: Deployment
 apiVersion: apps/v1
@@ -45,7 +45,7 @@ spec:
   selector:
     matchLabels:
       app: fake-client
-  replicas: 15
+  replicas: 2
   template:
     metadata:
       labels:

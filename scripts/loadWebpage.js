@@ -9,7 +9,7 @@ async function getPage(driver){
         await new Promise(r => setTimeout(r, 30000));
         await driver.quit();
     } catch (e) {
-        console.log("Caught error, ending");
+        console.log(e);
         await driver.quit();
     }
 }
