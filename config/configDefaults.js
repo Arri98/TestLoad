@@ -1,9 +1,9 @@
-let config = {};
+const config = {};
 
 config.browserPerContainer = 1;
 config.headless = true;
-config.script = ''
+config.script = 'loadChotis.js';
 config.cromeDriver = '';
-config.videoFile = '';
+config.videoFile = false;
 
 module.exports = config;

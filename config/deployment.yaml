@@ -73,8 +73,3 @@ spec:
           ports:
            - containerPort: 30005
              name: pc-port5
-
-
-
-
-
