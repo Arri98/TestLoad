@@ -1,11 +1,19 @@
 # WIP Repository to simulate client load in videconfernce webapps.
-
-Create files folder to add your own media to play.
-Create folder drivers and donwloadn chrome drivers for your chrome version
-
-Put your own scripts in the scripts folder and execute them.
-
 TODO Documentation properly done
+
+### Prerequisites
+- Node
+- NPM
+
+### Installation
+1. Create files folder if you want to add your own media to play.
+2. Create folder drivers and donwloan chrome drivers for your chrome version
+3. Put your own scripts in the scripts folder and execute them.
+4. Copy configDefaults.js into config.js and fill the configuration
+
+start.sh will check the prerequisites and the installation and create the folders and the config file if needed. 
+
+Scripts need to export a function called createBrowserAndExecute that will be called by the start.sh scripts, you can change that in the start.js file 
 ## Config params:
 ```
 * config.browserPerContainer   Number of chrome browsers to launch

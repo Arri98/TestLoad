@@ -13,5 +13,5 @@ COPY . /Load/
 WORKDIR /Load
 
 RUN npm install
-
-ENTRYPOINT npm start
+RUN chmod 777 start.sh
+ENTRYPOINT ./start.sh
