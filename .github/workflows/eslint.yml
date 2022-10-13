@@ -22,7 +22,5 @@ jobs:
 
       - name: Run ESLint
         run: npx eslint .
-          --rule 'import/no-unresolved: off'
-          --rule 'import/extensions: off'
-          --config .eslintrc.js
+          --config .eslintrcGitHub.js
           --ext .js
