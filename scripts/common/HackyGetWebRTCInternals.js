@@ -10,7 +10,8 @@ async function HackyGetWebRTCInternals(driver) {
     await summary.click();
     await checkBox.click();
     await button.click();
-    await new Promise((r) => setTimeout(r, 5000));
+    await new Promise((r) => setTimeout(r, 75000));
+    console.log('Done')
   } catch (e) {
     console.log(e);
     await driver.quit();

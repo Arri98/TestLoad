@@ -5,5 +5,6 @@ config.headless = true;
 config.script = 'loadChotis.js';
 config.cromeDriver = '';
 config.videoFile = false;
+config.audioFile = false;
 
 module.exports = config;
