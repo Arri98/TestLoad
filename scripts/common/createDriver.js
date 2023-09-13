@@ -5,12 +5,12 @@ let config = require('../../config/config');
 async function createDriver(params) {
   const parsedConfig = config || {};
   const parsedParams = params || {};
-  config = { ...parsedConfig, ...parsedParams };
-  const service = new chrome.ServiceBuilder(`./drivers/${config.cromeDriver}`);
+  const newConfig = { ...parsedConfig, ...parsedParams };
+  const service = new chrome.ServiceBuilder(`./drivers/${newConfig.cromeDriver}`);
   const options = new chrome.Options();
   options.addArguments('--no-sandbox');
   options.addArguments('--autoplay-policy=no-user-gesture-required');
-  if (config.headless) {
+  if (newConfig.headless) {
     options.addArguments('--headless=new');
   }
   options.addArguments('--window-size=1920,1080');
@@ -22,18 +22,18 @@ async function createDriver(params) {
   options.addArguments('--disable-gpu');
   options.addArguments('--detach-driver');
 
-  if (config.useUnsecure) {
+  if (newConfig.useUnsecure) {
     options.addArguments('--ignore-certificate-errors');
-    options.addArguments(`--unsafely-treat-insecure-origin-as-secure=${config.unscureIP}`);
+    options.addArguments(`--unsafely-treat-insecure-origin-as-secure=${newConfig.unscureIP}`);
   }
   options.addArguments('--use-fake-ui-for-media-stream');
   options.addArguments('--use-fake-device-for-media-stream');
-  if (config.videoFile) {
-    options.addArguments(`--use-file-for-fake-video-capture=./files/${config.videoFile}`);
+  if (newConfig.videoFile) {
+    options.addArguments(`--use-file-for-fake-video-capture=./files/${newConfig.videoFile}`);
   }
 
-  if (config.audioFile) {
-    options.addArguments(`--use-file-for-fake-audio-capture=./files/${config.audioFile}`);
+  if (newConfig.audioFile) {
+    options.addArguments(`--use-file-for-fake-audio-capture=./files/${newConfig.audioFile}`);
   }
 
   const driver = await new Builder()
