@@ -1,10 +1,12 @@
 const config = {};
 
-config.browserPerContainer = 1;
 config.headless = true;
-config.script = 'loadChotis.js';
+config.script = 'createSmarterpSessions.js';
 config.cromeDriver = '';
 config.videoFile = false;
 config.audioFile = false;
+config.useInscure = false;
+config.unscureIP = ''; // http://138.4.7.114:3000/
+config.smarterpURL = 'localhost';
 
 module.exports = config;

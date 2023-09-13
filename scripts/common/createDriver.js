@@ -1,4 +1,4 @@
-const { Builder, logging} = require('selenium-webdriver');
+const { Builder } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 let config = require('../../config/config');
 
@@ -13,14 +13,19 @@ async function createDriver(params) {
   if (config.headless) {
     options.addArguments('--headless=new');
   }
-  options.addArguments("--window-size=1920,1080");
-  options.addArguments("force-device-scale-factor=0,5");
+  options.addArguments('--window-size=1920,1080');
+  options.addArguments('force-device-scale-factor=0,5');
   options.addArguments('--disable-infobars');
   options.addArguments('--disable-features=PreloadMediaEngagementData,AutoplayIgnoreWebAudio,MediaEngagementBypassAutoplayPolicies');
   options.addArguments('--allow-file-access-from-files');
   options.addArguments('--disable-dev-shm-usage');
   options.addArguments('--disable-gpu');
-  options.addArguments('--unsafely-treat-insecure-origin-as-secure=http://138.4.7.114:3000/');
+  options.addArguments('--detach-driver');
+
+  if (config.useUnsecure) {
+    options.addArguments('--ignore-certificate-errors');
+    options.addArguments(`--unsafely-treat-insecure-origin-as-secure=${config.unscureIP}`);
+  }
   options.addArguments('--use-fake-ui-for-media-stream');
   options.addArguments('--use-fake-device-for-media-stream');
   if (config.videoFile) {

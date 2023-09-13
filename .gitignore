@@ -2,5 +2,5 @@ files/
 .idea/
 node_modules/*
 drivers/*
-minikube-linux-amd64
 config.js
+smarterpConfig.js
