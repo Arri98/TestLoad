@@ -7,7 +7,7 @@ async function log(driver, user, url) {
     await driver.wait(until.elementLocated(By.id('password')), 5000);
     await driver.findElement(By.id('password')).sendKeys(user.password);
     await driver.findElement(By.xpath('//input[@type=\'submit\']')).click();
-    await driver.get(url)
+    await driver.get(url);
   } catch (e) {
     console.log(e);
     await driver.quit();

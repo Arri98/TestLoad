@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "$PWD"
+
 if [[ -d "$PWD/drivers" ]]
 then
     echo "Driver folder located"

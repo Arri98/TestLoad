@@ -4,6 +4,8 @@ const config = require('../config/config');
 const { log } = require('./common/logSmarterp');
 const { interpret } = require('./common/interpret');
 const { shareTech } = require('./common/shareTech');
+const {onAir} = require("./common/onAir");
+const {randomPublic} = require("./common/publicRandomButtons");
 
 async function createBrowserAndExecute() {
   try {
@@ -14,11 +16,7 @@ async function createBrowserAndExecute() {
     const operator = await createDriver(sessionConfig.operator);
     await operator.get(config.smarterpURL);
     await log(operator, sessionConfig.operator, sessionConfig.session);
-
-    const coordinator = await createDriver(sessionConfig.coordinator);
-    await coordinator.get(config.smarterpURL);
-    await log(coordinator, sessionConfig.coordinator, sessionConfig.session);
-
+    await onAir(operator);
 
     for (let i = 0; i < sessionConfig.interpreters.length; i++) {
       /* eslint-disable */
@@ -29,6 +27,12 @@ async function createBrowserAndExecute() {
       interpret(interpreter);
         /* eslint-enable */
     }
+
+    for(let i = 0; i < sessionConfig.numberPublic; i++){
+      const public = await createDriver();
+      randomPublic(public);
+    }
+
   } catch (e) {
     console.log(e);
   }

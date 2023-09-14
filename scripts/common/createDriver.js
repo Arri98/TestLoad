@@ -1,6 +1,6 @@
 const { Builder } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
-let config = require('../../config/config');
+const config = require('../../config/config');
 
 async function createDriver(params) {
   const parsedConfig = config || {};

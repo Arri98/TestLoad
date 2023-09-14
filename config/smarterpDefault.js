@@ -25,7 +25,7 @@ sessionConfig.interpreters = [
   },
 ];
 
-sessionConfig.numberPublic = 0;
+sessionConfig.numberPublic = 5;
 
 // Educative sessions
 
