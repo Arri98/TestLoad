@@ -30,7 +30,7 @@ async function createBrowserAndExecute() {
 
     for(let i = 0; i < sessionConfig.numberPublic; i++){
       const public = await createDriver();
-      randomPublic(public);
+      randomPublic(public, sessionConfig.publicAddr);
     }
 
   } catch (e) {

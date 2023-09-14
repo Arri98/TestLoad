@@ -58,8 +58,8 @@ async function sendMessage(driver){
   }
   chats[number].click();
 
-  const chatDiv = await driver.findElement(By.id('chat'));
-  await chatDiv.findElement(By.className('emojionearea')).sendKeys('message hola hola');
+  const input = await driver.findElement(By.className('emojionearea-editor'));
+  await input.sendKeys('hola hola');
   await driver.findElement(By.id('sendMessage')).click();
 }
 
@@ -79,6 +79,7 @@ async function interpret(driver) {
                       async () => {await clickFloorButton(driver)}]
 
     while(true){
+      // functions[Math.floor(Math.random()*functions.length)]();
       functions[Math.floor(Math.random()*functions.length)]();
       await new Promise((r) => setTimeout(r, 7000));
     }
