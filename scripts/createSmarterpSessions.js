@@ -24,13 +24,18 @@ async function createBrowserAndExecute() {
       const interpreter = await createDriver(interpreterConfig);
       await interpreter.get(config.smarterpURL);
       await log(interpreter, interpreterConfig, sessionConfig.session);
-      interpret(interpreter);
+      if(!config.iddleParticipants){
+        interpret(interpreter);
+
+      }
         /* eslint-enable */
     }
 
     for(let i = 0; i < sessionConfig.numberPublic; i++){
       const public = await createDriver();
-      randomPublic(public, sessionConfig.publicAddr);
+      if (!config.iddleParticipants){
+        randomPublic(public, sessionConfig.publicAddr);
+      }
     }
 
   } catch (e) {
