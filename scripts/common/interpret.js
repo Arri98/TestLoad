@@ -1,6 +1,7 @@
 // const { By, until } = require('selenium-webdriver');
 
-const {until, By, Key} = require("selenium-webdriver");
+const {until, By, Key, logging} = require("selenium-webdriver");
+const {write} = require("./writeToFile")
 
 async function clickCameraButton(driver) {
   await driver.wait(until.elementLocated(By.id('camera')), 5000);
@@ -82,7 +83,15 @@ async function interpret(driver) {
       // functions[Math.floor(Math.random()*functions.length)]();
       functions[Math.floor(Math.random()*functions.length)]();
       await new Promise((r) => setTimeout(r, 7000));
-    }
+
+      driver.manage().logs().get(logging.Type.BROWSER)
+          .then(function(entries) {
+            entries.forEach(function(entry) {
+              write(entry.level.name, entry.message);
+              console.log('[%s] %s', entry.level.name, entry.message);
+            });
+          });
+      }
 
   } catch (e) {
     console.log(e);

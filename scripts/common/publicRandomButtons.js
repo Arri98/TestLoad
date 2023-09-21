@@ -1,4 +1,5 @@
-const { By, until } = require('selenium-webdriver');
+const { By, until, logging} = require('selenium-webdriver');
+const {write} = require("./writeToFile");
 
 async function randomPublic(driver, publicAddr) {
     try {
@@ -16,6 +17,13 @@ async function randomPublic(driver, publicAddr) {
             }
             buttons[number].click();
             await new Promise((r) => setTimeout(r, 10000));
+            driver.manage().logs().get(logging.Type.BROWSER)
+                .then(function(entries) {
+                    entries.forEach(function(entry) {
+                        write(entry.level.name, entry.message);
+                        console.log('[%s] %s', entry.level.name, entry.message);
+                    });
+            });
         }
     } catch (e) {
         console.log(e);

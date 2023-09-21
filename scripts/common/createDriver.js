@@ -1,6 +1,8 @@
-const { Builder } = require('selenium-webdriver');
+const { Builder, logging} = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 const config = require('../../config/config');
+const prefs = new logging.Preferences();
+prefs.setLevel(logging.Type.BROWSER, logging.Level.WARNING);
 
 async function createDriver(params) {
   const parsedConfig = config || {};
@@ -39,6 +41,7 @@ async function createDriver(params) {
   const driver = await new Builder()
     .forBrowser('chrome')
     .setChromeOptions(options)
+    .setLoggingPrefs(prefs)
     .setChromeService(service)
     .build();
 
