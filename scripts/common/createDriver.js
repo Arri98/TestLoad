@@ -12,9 +12,7 @@ async function createDriver(params) {
   const options = new chrome.Options();
   options.addArguments('--no-sandbox');
   options.addArguments('--autoplay-policy=no-user-gesture-required');
-  if (newConfig.headless) {
-    options.addArguments('--headless=new');
-  }
+  options.addArguments('--headless=new');
   options.addArguments('--window-size=1920,1080');
   options.addArguments('force-device-scale-factor=0,5');
   options.addArguments('--disable-infobars');

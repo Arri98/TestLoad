@@ -23,7 +23,7 @@ RUN apt-get install npm -y
 
 RUN mkdir /data
 WORKDIR /data
-RUN echo 'b'
+RUN echo 'c'
 RUN git clone https://github.com/Arri98/TestLoad
 WORKDIR TestLoad
 RUN npm install -y
