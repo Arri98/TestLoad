@@ -23,11 +23,11 @@ RUN apt-get install npm -y
 
 RUN mkdir /data
 WORKDIR /data
-RUN echo 'a'
+RUN echo 'b'
 RUN git clone https://github.com/Arri98/TestLoad
 WORKDIR TestLoad
 RUN npm install -y
-RUN git checkout createSmarterpDocker
+RUN git checkout createDockerImage
 RUN mkdir drivers
 RUN mv /chrome/chromedriver drivers/
 
