@@ -8,7 +8,7 @@ async function createDriver(params) {
   const parsedConfig = config || {};
   const parsedParams = params || {};
   const newConfig = { ...parsedConfig, ...parsedParams };
-  const service = new chrome.ServiceBuilder(`./drivers/${newConfig.cromeDriver}`);
+  const service = new chrome.ServiceBuilder(`./drivers/chromedriver`);
   const options = new chrome.Options();
   options.addArguments('--no-sandbox');
   options.addArguments('--autoplay-policy=no-user-gesture-required');
@@ -24,8 +24,8 @@ async function createDriver(params) {
   options.addArguments('--disable-gpu');
   options.addArguments('--detach-driver');
 
-  if (newConfig.useUnsecure) {
-    options.addArguments('--ignore-certificate-errors');
+  options.addArguments('--ignore-certificate-errors');
+  if(newConfig.unscureIP){
     options.addArguments(`--unsafely-treat-insecure-origin-as-secure=${newConfig.unscureIP}`);
   }
   options.addArguments('--use-fake-ui-for-media-stream');
