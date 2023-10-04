@@ -8,7 +8,7 @@ function write(level, data){
     console.log(level, data);
     if(level === 'WARNING'){
         fs.appendFileSync(warningFile, data+'\n');
-    } else if (level === 'ERROR'){
+    } else if (level === 'ERROR' || level === 'SEVERE'){
         fs.appendFileSync(errorFile, data+'\n');
     }
 

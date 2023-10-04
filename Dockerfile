@@ -21,7 +21,6 @@ RUN unzip chromedriver_linux64.zip
 RUN apt-get install -y git
 RUN apt-get install npm -y
 
-
 RUN mkdir /data
 WORKDIR /data
 RUN git clone https://github.com/Arri98/TestLoad
