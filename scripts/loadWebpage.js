@@ -15,7 +15,7 @@ async function createBrowserAndExecute(index, sessionId) {
   }*/
   try {
     console.log('Getting');
-    await driver.get('http://localhost:3001/?sessionId='+sessionId+'&id='+index);
+    await driver.get('https://138.4.22.13:3004/?sessionId='+sessionId+'&id='+index);
     await driver.wait(until.elementLocated(By.id("startButton")), 1000);
     let button = await driver.findElement(By.id("startButton"));
     button.click();

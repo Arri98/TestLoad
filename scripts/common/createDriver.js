@@ -14,6 +14,7 @@ async function createDriver(params) {
     options.addArguments('--headless=new');
   }
   options.addArguments("--window-size=1920,1080");
+  options.addArguments("--ignore-certificate-errors");
   options.addArguments("force-device-scale-factor=0,5");
   options.addArguments('--disable-infobars');
   options.addArguments('--disable-features=PreloadMediaEngagementData,AutoplayIgnoreWebAudio,MediaEngagementBypassAutoplayPolicies');
