@@ -28,6 +28,14 @@ if [[ -d "$PWD/files" ]]
 
 fi
 
+if [[ -d "$PWD/logs" ]]
+    then
+        echo "Logs folder found"
+    else
+        echo "No log folder"
+
+fi
+
 if ! which node > /dev/null
     then
         echo "Node not installed"
@@ -47,3 +55,4 @@ fi
 
 
 npm start
+while true; do sleep 1; done

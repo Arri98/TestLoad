@@ -1,0 +1,5 @@
+Convertir mp4 a way e ym4 para chrome
+
+sudo apt-get install ffmpeg
+ffmpeg -i fichero.mp4 cameraauto.wav
+ffmpeg -i fichero.mp4 cameraauto.y4m

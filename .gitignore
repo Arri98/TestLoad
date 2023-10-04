@@ -1,4 +1,6 @@
-files/
+files/**.wav
+files/**.y4m
+files/**.mjpeg
 .idea/
 node_modules/*
 drivers/*

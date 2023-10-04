@@ -24,6 +24,7 @@ RUN apt-get install npm -y
 
 RUN mkdir /data
 WORKDIR /data
+RUN ls
 RUN git clone https://github.com/Arri98/TestLoad
 WORKDIR TestLoad
 RUN npm install -y
@@ -31,4 +32,4 @@ RUN git checkout smarterp
 RUN mkdir drivers
 RUN mv /chrome/chromedriver drivers/
 
-ENTRYPOINT ./start.sh
+ENTRYPOINT ./start2.sh
